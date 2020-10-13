@@ -21,17 +21,10 @@ import { getNames, getInitials } from './mostWanted.js'
  * @returns {string} The first full name found matching the initials.
  */
 export function getGangster (initials) {
-  // TODO: Fix the bug(s) in this function to get the tests to pass.
-  const fullname = getNames()
-  let theSuspect
-  // const name = names.next().value
-  const initialsOfTheName = getInitials(fullname)
-
-  for (const name of fullname) {
-    if (initials === initialsOfTheName) {
-      theSuspect = name
-      return theSuspect
+  for (const oneName of getNames()) {
+    if (initials === getInitials(oneName)) {
+      return oneName
     }
   }
-  //  while (name)
+  return 'No suspect found!'
 }
