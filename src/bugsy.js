@@ -4,7 +4,7 @@
  * @module src/renameMe
  * @author Johan Leitet <johan.leitet@lnu.se>
  * @author Mats Loock <mats.loock@lnu.se>
- * @author // TODO: YOUR NAME <YOUR EMAIL>
+ * @author Pauliina Raitaniemi <pr222ja@student.lnu.se>
  * @version 1.0.0
  */
 
@@ -22,18 +22,16 @@ import { getNames, getInitials } from './mostWanted.js'
  */
 export function getGangster (initials) {
   // TODO: Fix the bug(s) in this function to get the tests to pass.
-  const names = getNames()
+  const fullname = getNames()
   let theSuspect
-  let name
-  let initialsOfTheName
+  // const name = names.next().value
+  const initialsOfTheName = getInitials(fullname)
 
-  do {
-    name = names.next().value
-    initialsOfTheName = getInitials(name)
+  for (const name of fullname) {
     if (initials === initialsOfTheName) {
       theSuspect = name
+      return theSuspect
     }
-  } while (name)
-
-  return theSuspect
+  }
+  //  while (name)
 }
